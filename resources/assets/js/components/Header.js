@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
 import Home from './Home';
 import About from './About';
-import Category from './Category/Index';
+import Index from "./Category/Index";
+import Add from "./Category/Add";
+
 
 export default class Header extends Component {
     render() {
@@ -23,9 +25,15 @@ export default class Header extends Component {
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/about">About</Link>
                                 </li>
-                                <li className="nav-item">
-                                    <Link className="nav-link" to="/category">Category</Link>
+                                <li className="nav-item dropdown">
+                                    <Link class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" to="/category">Category</Link>
+
+                                    <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <Link className="dropdown-item" to="/category">List</Link>
+                                        <Link className="dropdown-item" to="/category/add">Add</Link>
+                                    </div>
                                 </li>
+
 
                             </ul>
                             <form className="form-inline my-2 my-lg-0">
@@ -38,7 +46,8 @@ export default class Header extends Component {
                     </nav>
                     <Route exact path='/' component={Home}/>
                     <Route exact path='/about' component={About}/>
-                    <Route exact path='/category' component={Category}/>
+                    <Route exact path="/category" component={Index}/>
+                    <Route exact path="/category/add" component={Add}/>
 
                 </div>
             </Router>
