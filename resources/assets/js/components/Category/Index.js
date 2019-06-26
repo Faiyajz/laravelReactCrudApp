@@ -10,7 +10,7 @@ export default class Index extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:8000/api/category')
+        axios.get('/api/category')
             .then(response => {
                 this.setState({
                     categories: response.data
@@ -39,9 +39,9 @@ export default class Index extends Component {
                         this.state.categories.map(category => {
                                 return (
                                     <tr key={category.id}>
-                                        <th scope="row">{category.id}</th>
+                                         <th scope="row">{category.id}</th>
                                         <td>{category.name}</td>
-                                        <td>{category.active}</td>
+                                        <td>{category.active==1?("Active"):("Inactive")}</td>
                                         <td>{category.created_at}</td>
                                         <td>{category.updated_at}</td>
 

@@ -26,7 +26,7 @@ export default class Header extends Component {
                                     <Link className="nav-link" to="/about">About</Link>
                                 </li>
                                 <li className="nav-item dropdown">
-                                    <Link class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" to="/category">Category</Link>
+                                    <Link className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" to="/category">Category</Link>
 
                                     <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <Link className="dropdown-item" to="/category">List</Link>
