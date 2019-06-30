@@ -14,6 +14,8 @@ use Illuminate\Http\Request;
 */
 Route::get('category','Api\CategoryController@index');
 Route::post('category/store','Api\CategoryController@store');
+Route::delete('category/delete/{id}','Api\CategoryController@destroy');
+
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

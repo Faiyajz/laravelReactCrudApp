@@ -21,6 +21,14 @@ export default class Index extends Component {
         // console.log(this.state)
     }
 
+    onDelete(category_id){
+        axios.delete('/api/category/delete/'+category_id)
+            .then(response=>{
+                this.componentDidMount()
+            })
+
+    }
+
     render() {
         return (
             <div>
@@ -32,6 +40,7 @@ export default class Index extends Component {
                         <th scope="col">Status</th>
                         <th scope="col">Created At</th>
                         <th scope="col">Updated At</th>
+                        <th scope="col">Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -44,6 +53,7 @@ export default class Index extends Component {
                                         <td>{category.active==1?("Active"):("Inactive")}</td>
                                         <td>{category.created_at}</td>
                                         <td>{category.updated_at}</td>
+                                        <td><a href="#" onClick={this.onDelete.bind(this,category.id)}>DELETE</a></td>
 
                                     </tr>
                                 )

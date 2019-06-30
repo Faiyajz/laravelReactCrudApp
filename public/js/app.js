@@ -65454,8 +65454,19 @@ var Index = function (_Component) {
             // console.log(this.state)
         }
     }, {
+        key: 'onDelete',
+        value: function onDelete(category_id) {
+            var _this3 = this;
+
+            __WEBPACK_IMPORTED_MODULE_1_axios___default.a.delete('/api/category/delete/' + category_id).then(function (response) {
+                _this3.componentDidMount();
+            });
+        }
+    }, {
         key: 'render',
         value: function render() {
+            var _this4 = this;
+
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 null,
@@ -65492,6 +65503,11 @@ var Index = function (_Component) {
                                 'th',
                                 { scope: 'col' },
                                 'Updated At'
+                            ),
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                'th',
+                                { scope: 'col' },
+                                'Action'
                             )
                         )
                     ),
@@ -65526,6 +65542,15 @@ var Index = function (_Component) {
                                     'td',
                                     null,
                                     category.updated_at
+                                ),
+                                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                    'td',
+                                    null,
+                                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                                        'a',
+                                        { href: '#', onClick: _this4.onDelete.bind(_this4, category.id) },
+                                        'DELETE'
+                                    )
                                 )
                             );
                         })
