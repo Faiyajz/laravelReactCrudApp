@@ -1,11 +1,15 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import {BrowserRouter,Link,Route} from 'react-router-dom';
+import Edit from './Edit'
 
 export default class Index extends Component {
     constructor() {
         super();
         this.state = {
-            categories: []
+            categories: [],
+            category:{},
+            edit:0
         }
     }
 
@@ -29,9 +33,20 @@ export default class Index extends Component {
 
     }
 
+    onEdit(id){
+        const category = this.state.categories.filter(category=>{
+            return category.id==id
+        })[0]
+        console.log(category)
+        this.setState({
+            category,
+            edit:1
+        })
+    }
     render() {
         return (
             <div>
+                <Edit category={this.state.category} edit={this.state.edit}/>
                 <table className="table">
                     <thead>
                     <tr>
@@ -53,7 +68,7 @@ export default class Index extends Component {
                                         <td>{category.active==1?("Active"):("Inactive")}</td>
                                         <td>{category.created_at}</td>
                                         <td>{category.updated_at}</td>
-                                        <td><a href="#" onClick={this.onDelete.bind(this,category.id)}>DELETE</a></td>
+                                        <td><button onClick={this.onEdit.bind(this,category.id)}>Edit</button> <a href="#" onClick={this.onDelete.bind(this,category.id)}>DELETE</a></td>
 
                                     </tr>
                                 )

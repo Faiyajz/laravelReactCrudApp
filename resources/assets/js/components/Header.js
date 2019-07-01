@@ -4,6 +4,7 @@ import Home from './Home';
 import About from './About';
 import Index from "./Category/Index";
 import Add from "./Category/Add";
+import Edit from "./Category/Edit";
 
 
 export default class Header extends Component {
@@ -48,6 +49,7 @@ export default class Header extends Component {
                     <Route exact path='/about' component={About}/>
                     <Route exact path="/category" component={Index}/>
                     <Route exact path="/category/add" component={Add}/>
+                    <Route exact path="/category/edit/:id" component={Edit}/>
 
                 </div>
             </Router>
